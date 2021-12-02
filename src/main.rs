@@ -1,6 +1,7 @@
 mod days;
 
 use days::day1;
+use days::day2;
 use std::error::Error;
 use structopt::StructOpt;
 
@@ -10,6 +11,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     let result = match (opts.day, opts.part_two) {
         (1, false) => day1::solve_day1().to_string(),
         (1, true) => day1::solve_day1_part2().to_string(),
+        (2, false) => day2::solve_day2().to_string(),
+        (2, true) => day2::solve_day2_part2().to_string(),
         _ => unimplemented!(),
     };
 
