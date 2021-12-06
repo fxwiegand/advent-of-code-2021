@@ -1,4 +1,6 @@
 use itertools::Itertools;
+use std::collections::HashMap;
+use std::str::FromStr;
 
 #[derive(Debug, Eq, PartialEq, Clone, Copy)]
 struct Lanternfish {
@@ -43,18 +45,28 @@ pub(crate) fn solve_day6() -> usize {
 
 pub(crate) fn solve_day6_part2() -> usize {
     let input = include_str!("../puzzles/day6.txt");
-    let mut fishes = input
+    let fishes = input
         .split(',')
-        .map(|s| Lanternfish::from_str(s))
+        .map(|s| i32::from_str(s).unwrap())
         .collect_vec();
+    let mut fish_map = HashMap::new();
+    for fish in fishes {
+        let counter = fish_map.entry(fish).or_insert(0);
+        *counter += 1;
+    }
     for _ in 1..=256 {
-        let mut newborns = Vec::new();
-        for fish in fishes.iter_mut() {
-            if let Some(newborn) = fish.pass_day() {
-                newborns.push(newborn);
+        let mut new_map = HashMap::new();
+        for (timer, f) in fish_map.iter() {
+            if timer > &0 {
+                let counter = new_map.entry(timer - 1).or_insert(0);
+                *counter += *f;
+            } else {
+                let counter = new_map.entry(6).or_insert(0);
+                *counter += *f;
+                new_map.insert(8, *f);
             }
         }
-        fishes.extend(newborns.iter())
+        fish_map = new_map;
     }
-    fishes.iter().count()
+    fish_map.iter().map(|(k, v)| v).copied().sum()
 }
