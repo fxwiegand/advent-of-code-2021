@@ -68,5 +68,5 @@ pub(crate) fn solve_day6_part2() -> usize {
         }
         fish_map = new_map;
     }
-    fish_map.iter().map(|(k, v)| v).copied().sum()
+    fish_map.iter().map(|(_, v)| v).copied().sum()
 }
