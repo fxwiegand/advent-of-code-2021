@@ -40,7 +40,7 @@ pub(crate) fn solve_day6() -> usize {
         }
         fishes.extend(newborns.iter())
     }
-    fishes.iter().count()
+    fishes.len()
 }
 
 pub(crate) fn solve_day6_part2() -> usize {
