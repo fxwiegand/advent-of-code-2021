@@ -8,6 +8,7 @@ use days::day5;
 use days::day6;
 use days::day7;
 use days::day8;
+use days::day9;
 use std::error::Error;
 use structopt::StructOpt;
 
@@ -31,6 +32,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         (7, true) => day7::solve_day7_part2().to_string(),
         (8, false) => day8::solve_day8().to_string(),
         (8, true) => day8::solve_day8_part2().to_string(),
+        (9, false) => day9::solve_day9().to_string(),
+        (9, true) => day9::solve_day9_part2().to_string(),
         _ => unimplemented!(),
     };
 
