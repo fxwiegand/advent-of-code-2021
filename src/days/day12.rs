@@ -1,6 +1,4 @@
-
 use std::collections::HashMap;
-
 
 pub(crate) fn solve_day12() -> u32 {
     let input = include_str!("../puzzles/day12.txt");

@@ -85,7 +85,9 @@ fn get_basin(y: i32, x: i32, map: &[Vec<u32>], visited: &mut Vec<(i32, i32)>) ->
         && x < map[0].len() as i32
         && y >= 0
         && y < map.len() as i32
-        && !visited.contains(&(y, x)) && map[y as usize][x as usize] < 9 {
+        && !visited.contains(&(y, x))
+        && map[y as usize][x as usize] < 9
+    {
         result.push((y, x));
         visited.push((y, x));
         result.extend(get_basin(y, x - 1, map, visited));

@@ -1,6 +1,5 @@
 use itertools::Itertools;
 
-
 pub(crate) fn solve_day11() -> u32 {
     let input = include_str!("../puzzles/day11.txt");
     let mut octopuses: Vec<Vec<u32>> = input

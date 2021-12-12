@@ -1,7 +1,6 @@
 use itertools::Itertools;
 use std::collections::HashMap;
 
-
 pub(crate) fn solve_day10() -> u32 {
     let input = include_str!("../puzzles/day10.txt");
     input
