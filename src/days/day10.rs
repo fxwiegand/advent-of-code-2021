@@ -1,13 +1,13 @@
 use itertools::Itertools;
 use std::collections::HashMap;
-use std::str::FromStr;
+
 
 pub(crate) fn solve_day10() -> u32 {
     let input = include_str!("../puzzles/day10.txt");
     input
         .lines()
         .map(|s| s.chars().collect_vec())
-        .map(|v| get_corruption_score(v))
+        .map(get_corruption_score)
         .sum()
 }
 
@@ -17,7 +17,7 @@ pub(crate) fn solve_day10_part2() -> u64 {
         .lines()
         .map(|s| s.chars().collect_vec())
         .filter(|v| get_corruption_score(v.to_vec()) == 0)
-        .map(|v| get_incomplete_score(v))
+        .map(get_incomplete_score)
         .collect_vec();
     scores.sort_unstable();
     scores[scores.len() / 2]
@@ -141,7 +141,7 @@ fn get_incomplete_score(line: Vec<char>) -> u64 {
     other_scores.insert('{', 3);
 
     for s in stack.iter().rev() {
-        p = p * 5;
+        p *= 5;
         p += other_scores.get(s).unwrap();
     }
     p
