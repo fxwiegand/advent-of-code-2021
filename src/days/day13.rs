@@ -9,8 +9,8 @@ pub(crate) fn solve_day13() -> usize {
         .map(|l| l.split_once(',').unwrap())
         .map(|(x, y)| (x.parse().unwrap(), y.parse().unwrap()))
         .collect_vec();
-    let x_max = points.iter().map(|(x, y)| x).max().unwrap();
-    let y_max = points.iter().map(|(x, y)| y).max().unwrap();
+    let x_max = points.iter().map(|(x, _y)| x).max().unwrap();
+    let y_max = points.iter().map(|(_x, y)| y).max().unwrap();
     let mut sheet = vec![vec![false; *x_max as usize + 1]; *y_max as usize + 1];
     for (x, y) in points {
         sheet[y as usize][x as usize] = true;
@@ -73,8 +73,8 @@ pub(crate) fn solve_day13_part2() -> String {
         .map(|l| l.split_once(',').unwrap())
         .map(|(x, y)| (x.parse().unwrap(), y.parse().unwrap()))
         .collect_vec();
-    let x_max = points.iter().map(|(x, y)| x).max().unwrap();
-    let y_max = points.iter().map(|(x, y)| y).max().unwrap();
+    let x_max = points.iter().map(|(x, _y)| x).max().unwrap();
+    let y_max = points.iter().map(|(_x, y)| y).max().unwrap();
     let mut sheet = vec![vec![false; *x_max as usize + 1]; *y_max as usize + 1];
     for (x, y) in points {
         sheet[y as usize][x as usize] = true;

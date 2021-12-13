@@ -45,7 +45,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         (12, false) => day12::solve_day12().to_string(),
         (12, true) => day12::solve_day12_part2().to_string(),
         (13, false) => day13::solve_day13().to_string(),
-        (13, true) => day13::solve_day13_part2().to_string(),
+        (13, true) => day13::solve_day13_part2(),
         _ => unimplemented!(),
     };
 
