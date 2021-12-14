@@ -5,6 +5,7 @@ use days::day10;
 use days::day11;
 use days::day12;
 use days::day13;
+use days::day14;
 use days::day2;
 use days::day3;
 use days::day4;
@@ -46,6 +47,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         (12, true) => day12::solve_day12_part2().to_string(),
         (13, false) => day13::solve_day13().to_string(),
         (13, true) => day13::solve_day13_part2(),
+        (14, false) => day14::solve_day14().to_string(),
+        (14, true) => day14::solve_day14_part2().to_string(),
         _ => unimplemented!(),
     };
 
